@@ -28,5 +28,5 @@
 			} else {
 				warningIcon.style.visibility = 'hidden';
 			}
-    });
-  }
+    		});
+  	}
