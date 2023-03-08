@@ -10,7 +10,7 @@
 			labelHasQR = true;
 		} else {
 			labelHasQR = false;
-		};
+		}
 		return labelHasQR
 	});
 
