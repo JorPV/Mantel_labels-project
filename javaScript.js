@@ -14,7 +14,7 @@
 		return labelHasQR
 	});
 
-	// Check if there is a product without a URL in the form table.
+// Check if there is a product without a URL in the form table.
 	let productWithoutUrl = false; 
 
 	function checkTableRows (){
