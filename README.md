@@ -1,4 +1,4 @@
-# Mantel_procuctlabels-project
+# Mantel_project "Print product labels"
 
 This is a sample of the code I wrote while working at Mantel for the project "Print product labels". 
 
