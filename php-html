@@ -1,0 +1,65 @@
+// Alert when a product has no url //
+							<?if(!empty($product_without_url_exists)){?>
+								<div class="alert alert-warning">
+									<div class="stack-x align-items-baseline g-2">
+										<i class="fas fa-exclamation-triangle"></i>
+										<span><b><?=$backoffice_interface[2287]?></b> <?=$backoffice_interface[2309]?></span>
+									</div>
+								</div>
+							<?}?>
+
+// Info icon with popover on hover per product-row //
+
+            <div class="container-fluid">
+							<? if (isset($_SESSION['print']) AND !empty($_SESSION['print']) AND isset($_GET['location_id']) AND $_GET['location_id']) { ?>
+								<div class="card mt-4">
+									<div class="card-header">
+										<h3 class="m-0"><?=$backoffice_interface[2]?></h3>
+									</div>
+									<div class="card-body">
+										<form action="./product-label"  target="_blank" method="GET">
+										<table class="table table-sm">
+											<thead>
+												<tr>
+													<th><?=$backoffice_interface[49]?></th>
+													<th><?=$backoffice_interface[275]?></th>
+													<th><?=$backoffice_interface[61]?></th>
+													<th><?=$backoffice_interface[14]?></th>
+													<th class="text-right"><?=$backoffice_interface[107]?></th>
+													<th class="text-right"><?=$backoffice_interface[700]?></th>
+													<th class="text-right"><?=$backoffice_interface[394]?></th>
+													<th><?=$backoffice_interface[139]?></th>
+													<th class="text-right"></th>
+												</tr>
+											</thead>
+											<tbody>
+												<? 
+												foreach (array_keys($_SESSION['print']) as $product_row_id){
+													$product_row=$product_row_object[$product_row_id];
+													?>
+														<tr class="product-row-id-<?=$product_row_id?>"
+															<? if (empty($product_row['url'])){?>
+																data-contains-url="false"
+															<? } ?>
+														>
+															<?if(empty($product_row['url'])){?>
+																<td class="pl-0">
+																	<i class="fas fa-exclamation-circle mr-1" style="color:var(--color-warning-60);" 
+                                  data-trigger="hover" data-toggle="popover" data-placement="top" data-content='<?=$backoffice_interface[2308]?>'></i>
+																	<?=$product_row['product_brand_title']?>
+																</td>
+                                
+
+// Active button or disabled button with popover //
+
+                      <div class="cart-footer">
+												<div class="text-right">
+													<a href="<?=$_SERVER['REQUEST_URI']?>&clear-list=1" class="btn btn-danger"><?=$backoffice_interface[726]?> <i class="fa-lg ml-2 fas fa-trash-alt"></i></a>
+														<span class="d-inline-block" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="<?=$backoffice_interface[2381]?>">
+															<button class="ml-2 btn btn-primary" type="button" id="button-disabled" style="pointer-events: none; display:none;" disabled>
+																<?=$backoffice_interface[450]?><i class="far fa-lg ml-2 fa-print"></i>
+															</button>
+														</span>
+														<button id="print-button" type="submit" class="ml-2 btn btn-primary"> <?=$backoffice_interface[450]?><i class="far fa-lg ml-2 fa-print"></i></button>
+												</div>
+                      </div>  
